@@ -1,5 +1,10 @@
-# ScientificGardenAPI
-ScientificGardenAPI es una API REST diseñada para complementar la aplicación frontend My Scientific Garden. Proporciona servicios para gestionar datos relacionados con plantas, como su información científica, hábitos de crecimiento y regiones nativas. Esta API permite realizar operaciones CRUD (crear, leer, actualizar y eliminar) sobre registros de plantas y otros recursos asociados, sirviendo como el backend para garantizar una experiencia de usuario fluida y eficiente.
+# Scientific Garden API
+
+Scientific Garden API es una API REST en desarrollo diseñada para complementar la aplicación frontend My Scientific Garden. Sigue el patrón MVC y proporciona endpoints para gestionar información sobre plantas e insectos de tu jardín, permitiendo realizar operaciones CRUD (crear, leer, actualizar y eliminar) de manera eficiente.
+
+🌿 Descubre. Aprende. Conecta.
+
+Trabajando en conjunto con My Scientific Garden, esta API sirve como el backend para almacenar y administrar datos científicos, hábitos de crecimiento y regiones nativas de las especies registradas. Actualmente, el proyecto se encuentra en fase de desarrollo activo.
 
 ## 📜 Licencia
 
