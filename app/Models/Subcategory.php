@@ -4,9 +4,10 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class Kingdom extends Model
+class Subcategory extends Model
 {
     use HasFactory;
     /**
@@ -15,7 +16,8 @@ class Kingdom extends Model
      * @var array
      */
     protected $fillable = [
-        'name'
+        'name',
+        'categories_id'
     ];
 
     /**
@@ -24,11 +26,17 @@ class Kingdom extends Model
      * @var array
      */
     protected $casts = [
-        'id' => 'integer'
+        'id' => 'integer',
+        'categories_id' => 'integer'
     ];
 
-    public function plantaes(): HasMany
+    public function category(): BelongsTo
     {
-        return $this->hasMany(Plantae::class);
+        return $this->belongsTo(Category::class);
+    }
+
+    public function families(): HasMany
+    {
+        return $this->hasMany(Family::class);
     }
 }

@@ -13,21 +13,11 @@ return new class extends Migration
     {
         Schema::create('characteristics', function (Blueprint $table) {
             $table->id();
-
-            //Key Foreigns
-            $table->unsignedBigInteger('plant_id');
-
-            $table->foreign('plant_id')
-                ->references('id')
-                ->on('plants')
-                ->onUpdate('cascade')
-                ->onDelete('cascade');
-
-            //Other columns
             $table->string('leaf_type');
             $table->boolean('flowering');
             $table->string('fruit_type')->nullable();
             $table->string('wood_type')->nullable();
+            $table->foreignId('plantaes');
             $table->timestamps();
         });
     }

@@ -11,33 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('plants', function (Blueprint $table) {
+        Schema::create('plantaes', function (Blueprint $table) {
             $table->id();
-
-            //Key Foreigns
-            $table->unsignedBigInteger('kingdom_id');
-
-            $table->foreign('kingdom_id')
-                ->references('id')
-                ->on('kingdoms')
-                ->onUpdate('cascade')
-                ->onDelete('cascade');
-
-            $table->unsignedBigInteger('user_id');
-
-            $table->foreign('user_id')
-                ->references('id')
-                ->on('users')
-                ->onUpdate('cascade')
-                ->onDelete('cascade');
-
-            //Other columns
             $table->string('name');
             $table->string('scientific_name');
             $table->string('type');
             $table->string('growth_habit');
             $table->string('native_region');
             $table->text('description')->nullable();
+            $table->foreignId('kingdoms');
+            $table->foreignId('categories')->nullable();
+            $table->foreignId('users');
             $table->timestamps();
         });
     }
@@ -47,6 +31,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('plants');
+        Schema::dropIfExists('plantaes');
     }
 };

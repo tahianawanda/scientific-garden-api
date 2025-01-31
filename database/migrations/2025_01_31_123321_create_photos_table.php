@@ -13,19 +13,9 @@ return new class extends Migration
     {
         Schema::create('photos', function (Blueprint $table) {
             $table->id();
-
-            //Key Foreigns
-            $table->unsignedBigInteger('plant_id');
-
-            $table->foreign('plant_id')
-                ->references('id')
-                ->on('plants')
-                ->onUpdate('cascade')
-                ->onDelete('cascade');
-
-            //Other columns
             $table->string('url');
             $table->text('description')->nullable();
+            $table->foreignId('plantaes');
             $table->timestamps();
         });
     }

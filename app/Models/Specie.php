@@ -4,9 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class Kingdom extends Model
+class Specie extends Model
 {
     use HasFactory;
     /**
@@ -15,7 +15,8 @@ class Kingdom extends Model
      * @var array
      */
     protected $fillable = [
-        'name'
+        'name',
+        'genres_id'
     ];
 
     /**
@@ -24,11 +25,12 @@ class Kingdom extends Model
      * @var array
      */
     protected $casts = [
-        'id' => 'integer'
+        'id' => 'integer',
+        'genres_id' => 'integer'
     ];
 
-    public function plantaes(): HasMany
+    public function genre(): BelongsTo
     {
-        return $this->hasMany(Plantae::class);
+        return $this->belongsTo(Genre::class);
     }
 }

@@ -11,21 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('usetypes', function (Blueprint $table) {
+        Schema::create('use_types', function (Blueprint $table) {
             $table->id();
-
-            //Key Foreigns
-            $table->unsignedBigInteger('plant_id');
-
-            $table->foreign('plant_id')
-                ->references('id')
-                ->on('plants')
-                ->onUpdate('cascade')
-                ->onDelete('cascade');
-
-            //Other columns
             $table->string('use');
             $table->text('details')->nullable();
+            $table->foreignId('plantaes');
             $table->timestamps();
         });
     }
@@ -35,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('usetypes');
+        Schema::dropIfExists('use_types');
     }
 };
